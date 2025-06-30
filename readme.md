@@ -24,29 +24,30 @@ const nkotb = slackRichTextToMrkdwn(basicbold)
 
 The following example is a rich_text block:
 ```js
-  const basicbold = [
-    		{
-			"type": "rich_text",
-			"elements": [
-				{
-					"type": "rich_text_section",
-					"elements": [
-						{
-							"type": "text",
-							"text": "Hello there, "
-						},
-						{
-							"type": "text",
-							"text": "I am a bold rich text block!",
-							"style": {
-								"bold": true
-							}
-						}
-					]
-				}
-			]
-		}
-  ]
+
+const basicbold = [
+  {
+    "type": "rich_text",
+    "elements": [
+      {
+        "type": "rich_text_section",
+        "elements": [
+          {
+            "type": "text",
+            "text": "Hello there, "
+          },
+          {
+            "type": "text",
+            "text": "I am a bold rich text block!",
+            "style": {
+              "bold": true
+          }
+          }
+        ]
+      }
+    ]
+  }
+]
 ```
 
 You can convert this into a section block with the following (result shown as a comment):
@@ -58,6 +59,19 @@ const nkotb = slackRichTextToMrkdwn(basicbold)
 
 // result:
 //
+// {
+//   sectionBlock: [ { type: 'section', text: [Object] } ],
+//   mrkdwnText: 'Hello there, *I am a bold rich text block!*'
+// }
+```
+Using this result, you can now get the result as a section or just the `mrkdwn` text.  Since it returns a JSON, the results can be accessed using dot notation.
+
+The **section block** can be accessed using `.sectionBlock` and the **mrkdwn** text can be accessed using `.mrkdwnText`.  
+
+```js
+console.log (nkotb.sectionBlock)
+
+// result: 
 // [
 //   {
 //     type: 'section',
@@ -67,17 +81,11 @@ const nkotb = slackRichTextToMrkdwn(basicbold)
 //     }
 //   }
 // ]
-```
-Using this, you can then use that as a section block in your code when posting a message or anywhere you need the block.
 
-If you just need the `mrkdwn` text you can reference it in standard JSON format, which would be *`[variablename][0].text.text`*
-
-```js
-console.log (nkotb[0].text.text)
+console.log (nkotb.mrkdwnText)
 
 // result: 
-//
-//Hello there, *I am a bold rich text block!*
+// Hello there, *I am a bold rich text block!*
 ```
 
 ## License

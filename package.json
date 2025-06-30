@@ -4,7 +4,7 @@
   "description": "Converts a Slack rich_text JSON block to a Slack mrkdwn section block",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/clearfeed/slack-to-html.git"
+    "url": "git+https://github.com/Slacking-with-Scott/slack-richtext-to-mrkdwn.git"
   },
   "main": "index.js",
   "scripts": {

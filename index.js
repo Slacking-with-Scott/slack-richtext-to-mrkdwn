@@ -155,6 +155,8 @@ function slackRichTextToMrkdwn(richTextBlocks) {
     //This will return just the mrkdwn text, but we want it in a section block
     // return fullMrkdwn;
 
+
+
     const newSectionBlock = [
         {
 			"type": "section",
@@ -165,7 +167,13 @@ function slackRichTextToMrkdwn(richTextBlocks) {
 		}
     ];
 
-    return (newSectionBlock)
+    const result = {
+        sectionBlock: newSectionBlock,
+        mrkdwnText: fullMrkdwn
+    }
+
+    return (result)
+    // return (newSectionBlock)
 
 }
 

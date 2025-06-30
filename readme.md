@@ -41,7 +41,7 @@ const basicbold = [
             "text": "I am a bold rich text block!",
             "style": {
               "bold": true
-          }
+            }
           }
         ]
       }
